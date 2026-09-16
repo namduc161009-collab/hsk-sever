@@ -18,7 +18,23 @@ app.get("/", (req, res) => {
 });
 
 // Kiểm tra API
-app.get("/api/health", (req, res) => {
+app.get("/api/health", async (req, res) => {
+  try {
+    await pool.query("SELECT 1");
+
+    res.json({
+      success: true,
+      status: "online",
+      database: "connected"
+    });
+  } catch {
+    res.status(500).json({
+      success: false,
+      status: "online",
+      database: "error"
+    });
+  }
+});
   res.json({
     success: true,
     status: "online"
