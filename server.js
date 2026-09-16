@@ -26,5 +26,5 @@ app.get("/api/health", (req, res) => {
 });
 
 app.listen(PORT, "0.0.0.0", () => {
-  console.log(开心 HSK Server running on port ${PORT});
+console.log(`开心 HSK Server running on port ${PORT}`);
 });
